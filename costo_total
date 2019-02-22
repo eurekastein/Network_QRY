@@ -1,0 +1,25 @@
+-- Para evaluar el costo total se debe hacer una suma de los agg_costpor cada etapa 
+-- Primero es necesario hacer un join entre la tabla original de cultivos con geometría 
+-- y el primer calculo entre cultivo y beneficio 
+
+create table costo_total as 
+select a.*,b.*
+from
+(select a.*, b.*
+from
+(select a.geom, b.start_vid as id_cultivo1,	
+			 b.end_vid as id_beneficio1,	
+	         b.agg_cost as cost_cult_ben
+from (select geom, closest_node as nodo_cultivo from cultivo) a
+join cultivo_beneficios b 
+on a.nodo_cultivo = b.start_vid) as a
+join (select start_vid as id_beneficio2,	end_vid as id_acopio2, 	
+	 agg_cost as cost_ben_acop from beneficio_acopio ) as b
+on a.id_beneficio1 = b.id_beneficio2) as a
+join (select start_vid as id_acopio3,	end_vid as id_exportadora3, 	
+	 agg_cost as cost_acop_exp from acopio_exportadora) as b 
+on a.id_acopio2 = b.id_acopio3
+
+alter table costo_total add column suma_costos float; 
+update costo_total set suma_costos = coalesce(cost_acop_exp) + 
+									coalesce(cost_ben_acop) + coalesce(cost_cult_ben)
