@@ -1,6 +1,6 @@
-## Welcome to GitHub Pages
+## Network analysis for understanding the coffee supplying chain
 
-You can use the [editor on GitHub](https://github.com/eurekastein/Network_QRY/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjewpSjheDgAhUCX60KHeN9DnMQjRx6BAgBEAU&url=https%3A%2F%2Fwww.thejakartapost.com%2Flife%2F2018%2F01%2F19%2Fcrazy-about-indonesian-coffee-here-are-the-basics-of-java.html&psig=AOvVaw2pb279AJKzFG7hmmwFJ2z8&ust=1551498713161286">
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
